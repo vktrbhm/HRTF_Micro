@@ -17,11 +17,11 @@
 
 Vec3 setSourcePosition( Vec3 & pos) {
     
-    pos.x_ = 1 * cos(pos.phi_);
-    pos.y_ = 1 * cos(pos.phi_);
-    pos.z_ = - 1 * sin(pos.phi_);
+    pos.x_ = 2 *  cos(pos.phi_) * 180 / M_PI;
+    //pos.y_ = cos(pos.phi_)* 180 / M_PI;
+    pos.z_ = 2 * sin(pos.phi_) * 180 / M_PI ;
 
-    pos.phi_+= 0.1;
+    pos.phi_+= 0.01;
 
     return pos;
 }
@@ -38,7 +38,7 @@ Vec3 setListenerOrientation(Vec3 & ori) {
 int main(int argC,char* argV[])
 {
     std::list<ALuint> bufferQueue; // Queue of buffer objects
-    Vec3 pos {0.0,0.0,-3.0,0.0};
+    Vec3 pos (0.0,0.0,0.0,0.0);
     float phi;
     Vec3 ori;
 
@@ -109,7 +109,7 @@ int main(int argC,char* argV[])
                 alSource3f(helloSource[0], AL_POSITION, pos.x_ , pos.y_, pos.z_);
                 alSourcef (helloSource[0], AL_GAIN, 20.0);
 
-                std::cout<< "Position : (" << pos.x_<<","<<pos.z_<<") \n";
+                std::cout<< "Position : ( x=" << pos.x_<<", y= "<<pos.y_<< " z= "<<pos.z_<<") \n";
                 std::cout<< "Angle : (" << pos.phi_<<") \n";
 
 
