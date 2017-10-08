@@ -18,7 +18,7 @@
 Vec3 setSourcePosition( Vec3 & pos) {
     
     pos.x_ = 2 *  cos(pos.phi_) * 180 / M_PI;
-    //pos.y_ = cos(pos.phi_)* 180 / M_PI;
+    pos.y_ = cos(pos.phi_)* 180 / M_PI;
     pos.z_ = 2 * sin(pos.phi_) * 180 / M_PI ;
 
     pos.phi_+= 0.01;
